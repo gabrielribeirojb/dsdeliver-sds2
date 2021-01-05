@@ -1,52 +1,47 @@
-package com.devsuperior.dsdeliver.entities;
+package com.devsuperior.dsdeliver.dto;
 
 import java.io.Serializable;
 import java.time.Instant;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.JoinColumn;
-import javax.persistence.JoinTable;
-import javax.persistence.ManyToMany;
-import javax.persistence.Table;
+import com.devsuperior.dsdeliver.entities.Order;
+import com.devsuperior.dsdeliver.entities.OrderStatus;
 
-@Entity
-@Table(name = "tb_order")
-public class Order implements Serializable{
+public class OrderDTO implements Serializable{
 	
 	private static final long serialVersionUID = 1L;
 	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private OrderStatus status;
 	private String address;
 	private Double latitude;
 	private Double longitude;
 	private Instant moment;
-
 	
-	@ManyToMany
-	@JoinTable(name = "tb_order_product", 
-	joinColumns = @JoinColumn(name = "order_id") ,
-	inverseJoinColumns = @JoinColumn(name = "product_id"))
-	private Set<Product> products = new HashSet<>();
+	private List<ProductDTO> products = new ArrayList<>();
 	
-	public Order() {
+	public OrderDTO() {
 	}
-	
-	public Order(Long id, String address, Double latitude, Double longitude, Instant moment, OrderStatus status) {
-		super();
+
+	public OrderDTO(Long id, OrderStatus status, String address, Double latitude, Double longitude, Instant moment) {
 		this.id = id;
+		this.status = status;
 		this.address = address;
 		this.latitude = latitude;
 		this.longitude = longitude;
 		this.moment = moment;
-		this.status = status;
+	}
+	
+	public OrderDTO(Order entity) {
+		id = entity.getId();
+		status = entity.getStatus();
+		address = entity.getAddress();
+		latitude = entity.getLatitude();
+		longitude = entity.getLongitude();
+		moment = entity.getMoment();
+		products = entity.getProducts().stream().map(x -> new ProductDTO(x)).collect(Collectors.toList());
 	}
 
 	public Long getId() {
@@ -55,6 +50,14 @@ public class Order implements Serializable{
 
 	public void setId(Long id) {
 		this.id = id;
+	}
+
+	public OrderStatus getStatus() {
+		return status;
+	}
+
+	public void setStatus(OrderStatus status) {
+		this.status = status;
 	}
 
 	public String getAddress() {
@@ -89,15 +92,7 @@ public class Order implements Serializable{
 		this.moment = moment;
 	}
 
-	public OrderStatus getStatus() {
-		return status;
-	}
-
-	public void setStatus(OrderStatus status) {
-		this.status = status;
-	}
-
-	public Set<Product> getProducts(){
+	public List<ProductDTO> getProducts() {
 		return products;
 	}
 
@@ -117,7 +112,7 @@ public class Order implements Serializable{
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Order other = (Order) obj;
+		OrderDTO other = (OrderDTO) obj;
 		if (id == null) {
 			if (other.id != null)
 				return false;
@@ -125,7 +120,4 @@ public class Order implements Serializable{
 			return false;
 		return true;
 	}
-	
-	
-	
 }
