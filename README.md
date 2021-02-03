@@ -7,10 +7,10 @@ https://gabrielribeiro-sds2.netlify.app
 
 DS Delivery é uma aplicação full stack construída durante a 2ª edição da **Semana DevSuperior** (#sds2), evento organizado pela [DevSuperior](https://devsuperior.com "Site da DevSuperior").
 
-O projeto consiste em um sistema de registro e entrega de pedidos. Utilizamos Java com Spring Boot, e implementação no Heroku. baseados nestes dados.
+O projeto consiste em um sistema de registro e entrega de pedidos. Utilizamos Java com Spring Boot no back-end, e implementação no Heroku, baseados nestes dados, assim como Typescript com ReactJS no front-end, sendo implementado no Netlify. 
 
 ## Layout mobile
-![Mobile 1](https://github.com/gabrielribeirojb/assets-sds2/blob/main/assets/mobile-layout1.png)
+![Mobile 1](https://github.com/gabrielribeirojb/assets-sds2/blob/main/assets/mobile-layout1.png)   
 
 ![Mobile 2](https://github.com/gabrielribeirojb/assets-sds2/blob/main/assets/mobile-layout2.png)
  
@@ -34,7 +34,6 @@ O projeto consiste em um sistema de registro e entrega de pedidos. Utilizamos Ja
 - HTML / CSS / JS / TypeScript
 - ReactJS
 - React Native
-- Apex Charts
 - Expo
 ## Implantação em produção
 - Back end: Heroku
