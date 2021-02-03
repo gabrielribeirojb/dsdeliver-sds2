@@ -10,7 +10,11 @@ DS Delivery é uma aplicação full stack construída durante a 2ª edição da 
 O projeto consiste em um sistema de registro e entrega de pedidos. Utilizamos Java com Spring Boot, e implementação no Heroku. baseados nestes dados.
 
 ## Layout mobile
-![Mobile 1](https://github.com/gabrielribeirojb/assets-sds2/blob/main/assets/mobile-layout1.png) ![Mobile 2](https://github.com/gabrielribeirojb/assets-sds2/blob/main/assets/mobile-layout2.png) ![Mobile 3](https://github.com/gabrielribeirojb/assets-sds2/blob/main/assets/mobile-layout3.png)
+![Mobile 1](https://github.com/gabrielribeirojb/assets-sds2/blob/main/assets/mobile-layout1.png)
+
+![Mobile 2](https://github.com/gabrielribeirojb/assets-sds2/blob/main/assets/mobile-layout2.png)
+ 
+![Mobile 3](https://github.com/gabrielribeirojb/assets-sds2/blob/main/assets/mobile-layout3.png)
 
 ## Layout web
 ![Web 1](https://github.com/gabrielribeirojb/assets-sds2/blob/main/assets/desktop-layout.png)
